@@ -184,7 +184,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./bundle-url":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/index.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./..\\fonts\\Roboto-Regular.woff2":[["Roboto-Regular.d2584ee6.woff2","fonts/Roboto-Regular.woff2"],"fonts/Roboto-Regular.woff2"],"./..\\fonts\\Roboto-Regular.woff":[["Roboto-Regular.3e3cc457.woff","fonts/Roboto-Regular.woff"],"fonts/Roboto-Regular.woff"],"./..\\fonts\\Roboto-Bold.woff2":[["Roboto-Bold.4a7d3a36.woff2","fonts/Roboto-Bold.woff2"],"fonts/Roboto-Bold.woff2"],"./..\\fonts\\Roboto-Bold.woff":[["Roboto-Bold.05b33a96.woff","fonts/Roboto-Bold.woff"],"fonts/Roboto-Bold.woff"],"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -212,7 +217,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54159" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55351" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -389,4 +394,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/index.js.map
+//# sourceMappingURL=/src.dbcf305e.js.map

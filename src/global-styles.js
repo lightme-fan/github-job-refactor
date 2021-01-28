@@ -5,3 +5,6 @@ export const MainContainer = styled.div`
     margin: auto;
     padding: 1rem;
 `;
+
+export const Wrapper = styled.div`
+`;

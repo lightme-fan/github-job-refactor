@@ -32336,7 +32336,182 @@ SearchByLocation.Location = function SearchByLocationLocation({
 
 var _default = SearchByLocation;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../../../locations":"locations.js","./styles/search-by-location":"src/components/searchByLocation/styles/search-by-location.js"}],"src/components/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../../../locations":"locations.js","./styles/search-by-location":"src/components/searchByLocation/styles/search-by-location.js"}],"src/components/jobs/styles/jobs.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Time = exports.Location = exports.More = exports.Type = exports.Name = exports.Owner = exports.Wrapper = exports.Image = exports.Item = exports.List = exports.Container = void 0;
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const Container = _styledComponents.default.nav`
+    margin-top: 23px;
+    margin-bottom: 23px;
+`;
+exports.Container = Container;
+const List = _styledComponents.default.ul`
+    list-style: none;
+    padding: 0;
+`;
+exports.List = List;
+const Item = _styledComponents.default.li`
+    display: flex;
+    gap: 1rem;
+    background: #FFFFFF;
+    padding: 1rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+`;
+exports.Item = Item;
+const Image = _styledComponents.default.img`
+    width: 90px;
+    height: 90px;
+    border-radius: 4px;
+`;
+exports.Image = Image;
+const Wrapper = _styledComponents.default.div``;
+exports.Wrapper = Wrapper;
+const Owner = _styledComponents.default.h3`
+    margin: 0;
+    font-size: 12px;
+    line-height: 14px;
+`;
+exports.Owner = Owner;
+const Name = _styledComponents.default.p`
+    font-size: 16px;
+    line-height: 19px;
+    color: #334680;
+    font-weight: 500;
+`;
+exports.Name = Name;
+const Type = _styledComponents.default.button`
+    border: 1px solid #334680;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: inherit;
+`;
+exports.Type = Type;
+const More = _styledComponents.default.div`
+    margin-top: 20px;
+    display: flex;
+    gap: 1rem;
+`;
+exports.More = More;
+const Location = _styledComponents.default.span`
+    font-size: 12px;
+    line-height: 14px;
+    color: #B9BDCF;
+`;
+exports.Location = Location;
+const Time = _styledComponents.default.span`
+    font-size: 12px;
+    line-height: 14px;
+    color: #B9BDCF;
+`;
+exports.Time = Time;
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/jobs/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _jobs = require("./styles/jobs");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function Jobs({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_jobs.Container, restProps, children);
+}
+
+Jobs.List = function JobsList({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_jobs.List, restProps, children);
+};
+
+Jobs.Item = function JobsItem({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_jobs.Item, restProps, children);
+};
+
+Jobs.Image = function JobsImage({
+  src,
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_jobs.Image, _extends({
+    src: src
+  }, restProps));
+};
+
+Jobs.Wrapper = function JobsWrapper({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_jobs.Wrapper, restProps, children);
+};
+
+Jobs.Owner = function JobsOwner({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_jobs.Owner, restProps, children);
+};
+
+Jobs.Name = function JobsName({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_jobs.Name, restProps, children);
+};
+
+Jobs.Type = function JobsType({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_jobs.Type, restProps, children);
+};
+
+Jobs.More = function JobsMore({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_jobs.More, restProps, children);
+};
+
+Jobs.Location = function JobsLocation({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_jobs.Location, restProps, children);
+};
+
+Jobs.Time = function JobsTime({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_jobs.Time, restProps, children);
+};
+
+var _default = Jobs;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./styles/jobs":"src/components/jobs/styles/jobs.js"}],"src/components/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32366,6 +32541,12 @@ Object.defineProperty(exports, "SearchByLocation", {
     return _searchByLocation.default;
   }
 });
+Object.defineProperty(exports, "Jobs", {
+  enumerable: true,
+  get: function () {
+    return _jobs.default;
+  }
+});
 
 var _header = _interopRequireDefault(require("./header"));
 
@@ -32375,8 +32556,10 @@ var _searchByType = _interopRequireDefault(require("./searchByType"));
 
 var _searchByLocation = _interopRequireDefault(require("./searchByLocation"));
 
+var _jobs = _interopRequireDefault(require("./jobs"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./header":"src/components/header/index.js","./globalSearch":"src/components/globalSearch/index.js","./searchByType":"src/components/searchByType/index.js","./searchByLocation":"src/components/searchByLocation/index.js"}],"src/containers/header.js":[function(require,module,exports) {
+},{"./header":"src/components/header/index.js","./globalSearch":"src/components/globalSearch/index.js","./searchByType":"src/components/searchByType/index.js","./searchByLocation":"src/components/searchByLocation/index.js","./jobs":"src/components/jobs/index.js"}],"src/containers/header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32397,6 +32580,29 @@ function HeaderContainer() {
     placeholder: "Title, Company, Expertise"
   }), /*#__PURE__*/_react.default.createElement(_components.GlobalSearch.Button, null, "Search"))));
 }
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js"}],"src/containers/jobs.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _components = require("../components");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function JobContainer() {
+  return /*#__PURE__*/_react.default.createElement(_components.Jobs, null, /*#__PURE__*/_react.default.createElement(_components.Jobs.List, null, /*#__PURE__*/_react.default.createElement(_components.Jobs.Item, null, /*#__PURE__*/_react.default.createElement(_components.Jobs.Image, {
+    src: "https://bit.ly/33QVyLX",
+    alt: "job"
+  }), /*#__PURE__*/_react.default.createElement(_components.Jobs.Wrapper, null, /*#__PURE__*/_react.default.createElement(_components.Jobs.Owner, null, "Fanilo"), /*#__PURE__*/_react.default.createElement(_components.Jobs.Name, null, "Front-end development"), /*#__PURE__*/_react.default.createElement(_components.Jobs.Type, null, "Full Time"), /*#__PURE__*/_react.default.createElement(_components.Jobs.More, null, /*#__PURE__*/_react.default.createElement(_components.Jobs.Location, null, "New York"), /*#__PURE__*/_react.default.createElement(_components.Jobs.Time, null, "2 days ago"))))));
+}
+
+var _default = JobContainer;
+exports.default = _default;
 },{"react":"node_modules/react/index.js","../components":"src/components/index.js"}],"src/containers/search.js":[function(require,module,exports) {
 "use strict";
 
@@ -32416,35 +32622,13 @@ function SearchContainer() {
     placeholder: "City, State, Zip code or country"
   }), /*#__PURE__*/_react.default.createElement(_components.SearchByLocation.Location, null)));
 }
-},{"react":"node_modules/react/index.js","../components":"src/components/index.js"}],"src/pages/Home.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js"}],"src/global-styles.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _header = _interopRequireDefault(require("../containers/header"));
-
-var _search = _interopRequireDefault(require("../containers/search"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Home() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_header.default, null), /*#__PURE__*/_react.default.createElement(_search.default, null));
-}
-
-var _default = Home;
-exports.default = _default;
-},{"react":"node_modules/react/index.js","../containers/header":"src/containers/header.js","../containers/search":"src/containers/search.js"}],"src/global-styles.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.MainContainer = void 0;
+exports.Wrapper = exports.MainContainer = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
@@ -32456,7 +32640,36 @@ const MainContainer = _styledComponents.default.div`
     padding: 1rem;
 `;
 exports.MainContainer = MainContainer;
-},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/App.js":[function(require,module,exports) {
+const Wrapper = _styledComponents.default.div`
+`;
+exports.Wrapper = Wrapper;
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/pages/Home.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _header = _interopRequireDefault(require("../containers/header"));
+
+var _jobs = _interopRequireDefault(require("../containers/jobs"));
+
+var _search = _interopRequireDefault(require("../containers/search"));
+
+var _globalStyles = require("../global-styles");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Home() {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_header.default, null), /*#__PURE__*/_react.default.createElement(_globalStyles.Wrapper, null, /*#__PURE__*/_react.default.createElement(_search.default, null), /*#__PURE__*/_react.default.createElement(_jobs.default, null)));
+}
+
+var _default = Home;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","../containers/header":"src/containers/header.js","../containers/jobs":"src/containers/jobs.js","../containers/search":"src/containers/search.js","../global-styles":"src/global-styles.js"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34244,7 +34457,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52828" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55351" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("/Roboto-Regular.d2584ee6.woff2") format("woff2"), url("/Roboto-Regular.3e3cc457.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/Roboto-Bold.4a7d3a36.woff2") format("woff2"), url("/Roboto-Bold.05b33a96.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  background: #F6F7FB;
+  color: #334680;
+  margin: 0;
+  font-family: "Roboto";
+}
+
+/*# sourceMappingURL=/src.dbcf305e.css.map */
