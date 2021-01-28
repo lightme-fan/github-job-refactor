@@ -26,7 +26,7 @@ function JobContainer() {
     return (
         <Jobs>
             <Jobs.List>
-                {currentJobs.map(job => 
+                {currentJobs.map((job) => 
                     <Jobs.Item key={job.id}>
                         <Jobs.Image src={job.company_logo} alt="job" />
                         <Jobs.Wrapper>

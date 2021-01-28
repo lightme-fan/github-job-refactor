@@ -23,7 +23,7 @@ function reducer(state, action) {
                 jobs: action.allJobs
             }
         }
-        case 'MAIN_SEARCH': {
+        case 'GLOBAL_SEARCH': {
             return {
                 ...state,
                 loading: false,

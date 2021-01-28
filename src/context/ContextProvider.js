@@ -7,7 +7,7 @@ function ContextProvider({children}) {
     const [ state, dispatch ] = useAppReducer()
     const { loading, jobs } = state
     return (
-        <GlobalContext.Provider value={{ loading, jobs }}>
+        <GlobalContext.Provider value={{ loading, jobs, dispatch }}>
             {children}
         </GlobalContext.Provider>
     )
