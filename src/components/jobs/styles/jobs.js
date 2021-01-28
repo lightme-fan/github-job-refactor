@@ -3,11 +3,15 @@ import styled from 'styled-components'
 export const Container = styled.nav`
     margin-top: 23px;
     margin-bottom: 23px;
+    width: 100%
 `;
 
 export const List = styled.ul`
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 `;
 
 export const Item = styled.li`
@@ -63,4 +67,37 @@ export const Time = styled.span`
     font-size: 12px;
     line-height: 14px;
     color: #B9BDCF;
+`;
+
+export const Pagination = styled.div`
+    ul {
+        margin-top: 30px;
+        list-style: none;
+        display: flex;
+        padding: 0;
+        justify-content: flex-end;
+        li {
+            padding: 6px 17px;
+            border: 1px solid;
+            border-radius: 7px;
+            margin-right: 2%;
+
+            a {
+                text-decoration: none;
+            }
+        }
+
+        li:nth-of-type(1),
+        li:last-of-type {
+            display: none;
+        }
+
+        li:hover {
+            border-color: #1E86FF;
+        }
+
+        .active_page {
+            background: #1E86FF;
+        }
+    }
 `;

@@ -12,7 +12,7 @@ export const Title = styled.h2`
 `;
 
 export const Input = styled.input`
-    width: 90%;
+    width: 95%;
     background: #FFFFFF;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
     border: none;

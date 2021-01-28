@@ -7,4 +7,15 @@ export const MainContainer = styled.div`
 `;
 
 export const Wrapper = styled.div`
+    @media (min-width: 900px) {
+        display: flex;
+        justify-content: space-between;
+        gap: 10%;
+    }
+`;
+
+export const Search = styled.div`
+    @media (min-width: 900px) {
+        width: 70%;
+    }
 `;

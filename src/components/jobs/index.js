@@ -11,7 +11,8 @@ import {
     Type,
     More,
     Location,
-    Time
+    Time,
+    Pagination
 } from './styles/jobs'
 
 function Jobs({children, ...restProps}) {
@@ -56,6 +57,10 @@ Jobs.Location = function JobsLocation({children, ...restProps}) {
 
 Jobs.Time = function JobsTime({children, ...restProps}) {
     return <Time {...restProps}>{children}</Time>
+}
+
+Jobs.Pagination = function JobsPagination({children, ...restProps}) {
+    return <Pagination {...restProps}>{children}</Pagination>
 }
 
 export default Jobs
