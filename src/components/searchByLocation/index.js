@@ -5,7 +5,7 @@ import {
     Container,
     Title,
     Input,
-    Location } from './styles'
+    Location } from './styles/search-by-location'
 
 function SearchByLocation({children, ...restProps}) {
     return <Container {...restProps}>{children}</Container>

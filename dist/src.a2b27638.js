@@ -32215,7 +32215,128 @@ SearchByType.Input = function SearchByTypeInput({ ...restProps
 
 var _default = SearchByType;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./styles/search-by-type":"src/components/searchByType/styles/search-by-type.js"}],"src/components/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./styles/search-by-type":"src/components/searchByType/styles/search-by-type.js"}],"locations.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+const locations = [{
+  id: 1,
+  place: 'London'
+}, {
+  id: 2,
+  place: 'Amsterdam'
+}, {
+  id: 3,
+  place: 'New York'
+}, {
+  id: 4,
+  place: 'Berlin'
+}];
+var _default = locations;
+exports.default = _default;
+},{}],"src/components/searchByLocation/styles/search-by-location.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Location = exports.Input = exports.Title = exports.Container = void 0;
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const Container = _styledComponents.default.div`
+    margin-top: 34px;
+`;
+exports.Container = Container;
+const Title = _styledComponents.default.h2`
+    font-size: 14px;
+    line-height: 21px;
+    text-transform: uppercase;
+    color: #B9BDCF;
+`;
+exports.Title = Title;
+const Input = _styledComponents.default.input`
+    width: 90%;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    border: none;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 25px;
+`;
+exports.Input = Input;
+const Location = _styledComponents.default.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    input {
+        margin-right: 4%;
+    }
+`;
+exports.Location = Location;
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/searchByLocation/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _locations = _interopRequireDefault(require("../../../locations"));
+
+var _searchByLocation = require("./styles/search-by-location");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function SearchByLocation({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_searchByLocation.Container, restProps, children);
+}
+
+SearchByLocation.Title = function SearchByLocationTitle({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_searchByLocation.Title, restProps, children);
+};
+
+SearchByLocation.Input = function SearchByLocationInput({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_searchByLocation.Input, _extends({
+    type: "text"
+  }, restProps));
+};
+
+SearchByLocation.Location = function SearchByLocationLocation({
+  children,
+  ...restProps
+}) {
+  return /*#__PURE__*/_react.default.createElement(_searchByLocation.Location, _extends({
+    type: "text"
+  }, restProps), _locations.default.map(item => /*#__PURE__*/_react.default.createElement("label", {
+    key: item.id
+  }, /*#__PURE__*/_react.default.createElement("input", {
+    type: "radio"
+  }), item.place)));
+};
+
+var _default = SearchByLocation;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","../../../locations":"locations.js","./styles/search-by-location":"src/components/searchByLocation/styles/search-by-location.js"}],"src/components/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32239,6 +32360,12 @@ Object.defineProperty(exports, "SearchByType", {
     return _searchByType.default;
   }
 });
+Object.defineProperty(exports, "SearchByLocation", {
+  enumerable: true,
+  get: function () {
+    return _searchByLocation.default;
+  }
+});
 
 var _header = _interopRequireDefault(require("./header"));
 
@@ -32246,8 +32373,10 @@ var _globalSearch = _interopRequireDefault(require("./globalSearch"));
 
 var _searchByType = _interopRequireDefault(require("./searchByType"));
 
+var _searchByLocation = _interopRequireDefault(require("./searchByLocation"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./header":"src/components/header/index.js","./globalSearch":"src/components/globalSearch/index.js","./searchByType":"src/components/searchByType/index.js"}],"src/containers/header.js":[function(require,module,exports) {
+},{"./header":"src/components/header/index.js","./globalSearch":"src/components/globalSearch/index.js","./searchByType":"src/components/searchByType/index.js","./searchByLocation":"src/components/searchByLocation/index.js"}],"src/containers/header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32283,7 +32412,9 @@ var _components = require("../components");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function SearchContainer() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_components.SearchByType, null, /*#__PURE__*/_react.default.createElement(_components.SearchByType.Input, null), "Full time"));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_components.SearchByType, null, /*#__PURE__*/_react.default.createElement(_components.SearchByType.Input, null), "Full time"), /*#__PURE__*/_react.default.createElement(_components.SearchByLocation, null, /*#__PURE__*/_react.default.createElement(_components.SearchByLocation.Title, null, "Location"), /*#__PURE__*/_react.default.createElement(_components.SearchByLocation.Input, {
+    placeholder: "City, State, Zip code or country"
+  }), /*#__PURE__*/_react.default.createElement(_components.SearchByLocation.Location, null)));
 }
 },{"react":"node_modules/react/index.js","../components":"src/components/index.js"}],"src/pages/Home.js":[function(require,module,exports) {
 "use strict";
@@ -32322,6 +32453,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const MainContainer = _styledComponents.default.div`
     max-width: 1000px;
     margin: auto;
+    padding: 1rem;
 `;
 exports.MainContainer = MainContainer;
 },{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/App.js":[function(require,module,exports) {
@@ -34112,7 +34244,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49641" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52828" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

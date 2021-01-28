@@ -1,5 +1,5 @@
 import React from 'react'
-import { SearchByType } from '../components'
+import { SearchByLocation, SearchByType } from '../components'
 
 export default function SearchContainer() {
     return (
@@ -8,6 +8,11 @@ export default function SearchContainer() {
                 <SearchByType.Input/>
                 Full time
             </SearchByType>
+            <SearchByLocation>
+                <SearchByLocation.Title>Location</SearchByLocation.Title>
+                <SearchByLocation.Input placeholder="City, State, Zip code or country" />
+                <SearchByLocation.Location/>
+            </SearchByLocation>
         </div>
     )
 }
