@@ -15,12 +15,14 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-    display: flex;
-    gap: 1rem;
-    background: #FFFFFF;
-    padding: 1rem;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
+    a {
+        display: flex;
+        gap: 1rem;
+        background: #FFFFFF;
+        padding: 1rem;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+    }
 `;
 
 export const Image = styled.img`

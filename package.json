@@ -27,6 +27,7 @@
     "react-js-pagination": "^3.0.3",
     "react-pagination": "^1.0.0",
     "react-router-dom": "^5.2.0",
+    "s": "^1.0.0",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {

@@ -19,4 +19,9 @@ body {
   font-family: "Roboto";
 }
 
+a {
+  text-decoration: none;
+  color: #334680;
+}
+
 /*# sourceMappingURL=/src.dbcf305e.css.map */

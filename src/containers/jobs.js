@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import Pagination from "react-js-pagination";
+import { Link } from 'react-router-dom';
 
 import { Jobs } from '../components'
 import { GlobalContext } from '../context/ContextProvider'
@@ -28,16 +29,18 @@ function JobContainer() {
             <Jobs.List>
                 {currentJobs.map((job) => 
                     <Jobs.Item key={job.id}>
-                        <Jobs.Image src={job.company_logo} alt="job" />
-                        <Jobs.Wrapper>
-                            <Jobs.Owner>{job.company}</Jobs.Owner>
-                            <Jobs.Name>{job.title}</Jobs.Name>
-                            <Jobs.Type>{job.type}</Jobs.Type>
-                            <Jobs.More>
-                                <Jobs.Location>{job.location}</Jobs.Location>
-                                <Jobs.Time>2 days ago</Jobs.Time>
-                            </Jobs.More>
-                        </Jobs.Wrapper>
+                        <Link to={`/${job.id}`}>
+                            <Jobs.Image src={job.company_logo} alt="job" />
+                            <Jobs.Wrapper>
+                                <Jobs.Owner>{job.company}</Jobs.Owner>
+                                <Jobs.Name>{job.title}</Jobs.Name>
+                                <Jobs.Type>{job.type}</Jobs.Type>
+                                <Jobs.More>
+                                    <Jobs.Location>{job.location}</Jobs.Location>
+                                    <Jobs.Time>2 days ago</Jobs.Time>
+                                </Jobs.More>
+                            </Jobs.Wrapper>
+                        </Link>
                     </Jobs.Item>
                 )}
                 <Jobs.Pagination>
