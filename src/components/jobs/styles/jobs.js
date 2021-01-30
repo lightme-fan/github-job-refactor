@@ -59,16 +59,22 @@ export const More = styled.div`
     gap: 1rem;
 `;
 
-export const Location = styled.span`
+export const Location = styled.div`
     font-size: 12px;
     line-height: 14px;
     color: #B9BDCF;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 `;
 
-export const Time = styled.span`
+export const Time = styled.div`
     font-size: 12px;
     line-height: 14px;
     color: #B9BDCF;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 `;
 
 export const Pagination = styled.div`

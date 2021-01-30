@@ -63,6 +63,12 @@ function reducer(state, action) {
 function useAppReducer() {
     const [ state, dispatch ] = useReducer(reducer, initialValue)
 
+    // const fetchData = async () => {
+    //     const response = await axios(CORS_URL+API_URL)
+    //     const data = await response.data
+    //     dispatch({type: 'FETCH_JOBS', allJobs: data})
+    // }
+
     useEffect(async () => {
         const response = await axios(CORS_URL+API_URL)
         const data = await response.data

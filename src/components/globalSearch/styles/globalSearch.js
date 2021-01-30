@@ -16,6 +16,14 @@ export const Wrapper = styled.fieldset`
     border-radius: 4px;
     display: flex;
     justify-content: space-between;
+    padding-left: 3rem;
+    position: relative;
+
+    svg {
+        position: absolute;
+        top: 26%;
+        left: 2%;
+    }
 `;
 
 export const Input = styled.input`

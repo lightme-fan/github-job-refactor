@@ -61,6 +61,9 @@ export const Time = styled.p`
     color: #B7BCCE;
     margin: 0;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 `;
 
 export const Company = styled.div`
@@ -93,6 +96,9 @@ export const CompanyLocation = styled.p`
     font-size: 12px;
     line-height: 14px;
     color: #B9BDCF;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 `;
 
 export const Explanation = styled.div``;
