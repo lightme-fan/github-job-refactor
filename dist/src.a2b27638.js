@@ -37949,6 +37949,7 @@ const Pagination = _styledComponents.default.div`
         display: flex;
         padding: 0;
         justify-content: flex-end;
+        
         li {
             padding: 6px 17px;
             border: 1px solid;
@@ -38094,31 +38095,102 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const Container = _styledComponents.default.article``;
 exports.Container = Container;
-const Wrapper = _styledComponents.default.div``;
+const Wrapper = _styledComponents.default.div`
+    margin-top: 34px;
+    margin-bottom: 34px;
+
+    a {
+        color: #1E86FF;
+    }
+
+    @media (min-width: 900px) {
+        display: grid;
+        grid-template-columns: 30% 1fr;
+        gap: 10%;
+        /* justify-content: space-between; */
+    }
+`;
 exports.Wrapper = Wrapper;
 const Heading = _styledComponents.default.div``;
 exports.Heading = Heading;
 const BackHome = _styledComponents.default.a``;
 exports.BackHome = BackHome;
-const Title = _styledComponents.default.h1``;
+const Title = _styledComponents.default.h1`
+    font-size: 14px;
+    line-height: 21px;
+    text-transform: uppercase;
+    color: #B9BDCF;
+    padding: 1rem 0;
+`;
 exports.Title = Title;
-const Email = _styledComponents.default.p``;
+const Email = _styledComponents.default.p`
+    padding-bottom: 1rem;
+`;
 exports.Email = Email;
 const Description = _styledComponents.default.div``;
 exports.Description = Description;
-const DescHeading = _styledComponents.default.div``;
+const DescHeading = _styledComponents.default.div`
+    h1 {
+        font-size: 24px;
+        line-height: 28px;
+        color: #334680;
+        margin: 0;
+    }
+
+    @media (min-width: 900px) {
+        display: flex;
+        gap: 2rem;
+    }
+`;
 exports.DescHeading = DescHeading;
-const Button = _styledComponents.default.button``;
+const Button = _styledComponents.default.button`
+    border: 1px solid #334680;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: transparent;
+    padding: 8px;
+`;
 exports.Button = Button;
-const Time = _styledComponents.default.p``;
+const Time = _styledComponents.default.p`
+    font-size: 12px;
+    line-height: 14px;
+    color: #B7BCCE;
+    margin: 0;
+    padding: 10px;
+`;
 exports.Time = Time;
-const Company = _styledComponents.default.div``;
+const Company = _styledComponents.default.div`
+    margin: 35px 0;
+    display: flex;
+    gap: 1rem;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+`;
 exports.Company = Company;
-const CompanyLogo = _styledComponents.default.img``;
+const CompanyLogo = _styledComponents.default.img`
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+`;
 exports.CompanyLogo = CompanyLogo;
-const CompanyName = _styledComponents.default.p``;
+const CompanyName = _styledComponents.default.p`
+    margin: 0;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    color: #334680;
+`;
 exports.CompanyName = CompanyName;
-const CompanyLocation = _styledComponents.default.p``;
+const CompanyLocation = _styledComponents.default.p`
+    margin: 0;
+    font-size: 12px;
+    line-height: 14px;
+    color: #B9BDCF;
+`;
 exports.CompanyLocation = CompanyLocation;
 const Explanation = _styledComponents.default.div``;
 exports.Explanation = Explanation;
@@ -40971,8 +41043,26 @@ function DetailContainer() {
     dangerouslySetInnerHTML: {
       __html: job?.how_to_apply
     }
-  })), /*#__PURE__*/_react.default.createElement(_components.Details.Description, null, /*#__PURE__*/_react.default.createElement(_components.Details.DescHeading, null, /*#__PURE__*/_react.default.createElement(_components.Details.Button, null)), /*#__PURE__*/_react.default.createElement(_components.Details.Time, null), /*#__PURE__*/_react.default.createElement(_components.Details.Company, null, /*#__PURE__*/_react.default.createElement(_components.Details.CompanyLogo, null), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_components.Details.CompanyName, null), /*#__PURE__*/_react.default.createElement(_components.Details.CompanyLocation, null))), /*#__PURE__*/_react.default.createElement(_components.Details.Explanation, null))));
-}
+  })), /*#__PURE__*/_react.default.createElement(_components.Details.Description, null, /*#__PURE__*/_react.default.createElement(_components.Details.DescHeading, null, /*#__PURE__*/_react.default.createElement("h1", null, job?.title), /*#__PURE__*/_react.default.createElement(_components.Details.Button, null, job?.type)), /*#__PURE__*/_react.default.createElement(_components.Details.Time, null, "5 days ago"), /*#__PURE__*/_react.default.createElement(_components.Details.Company, null, /*#__PURE__*/_react.default.createElement(_components.Details.CompanyLogo, {
+    src: job?.company_logo,
+    alt: job?.company
+  }), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_components.Details.CompanyName, null, job?.company), /*#__PURE__*/_react.default.createElement(_components.Details.CompanyLocation, null, job?.location))), /*#__PURE__*/_react.default.createElement(_components.Details.Explanation, {
+    dangerouslySetInnerHTML: {
+      __html: job?.description
+    }
+  }))));
+} // company: "BRANDIRON"
+// company_logo: null
+// company_url: "http://WWW.BRANDIRON.NET"
+// created_at: "Fri Jan 29 18:49:45 UTC 2021"
+// description: "<p>We are looking for a freelance front end web developer with an eye for SEO and all things speed. You have at least 3 years of front end web development experience and you like solving complex problems.</p>↵<p>RESPONSIBILITIES:</p>↵<p>Code websites using HTML, CSS and JavaScript within a mainstream CMS↵Independently and accurately scope and manage project budgets and timelines↵Participate in early stage concept development, content architecture, and functionality designs in the web development process↵Ability to setup domain, manage DNS zone records, through development and website launch↵Manage multiple projects by working directly with both designers and project managers within a flexible, changing environment↵Effectively problem-solve and resolve website issues↵Effectively respond to client inquiries regarding their websites↵Train new clients on their website while customizing the solution to their business</p>↵<p>REQUIREMENTS:</p>↵<p>3+ years programming and UX Design experience↵Proven experience with CMS (able to show examples)↵Expert in HTML and CSS, and comfortable with PHP↵Extensive experience developing custom theming and templating within a mainstream CMS (WordPress)↵Expert knowledge of JavaScript and advanced knowledge of implementing behavior and functionality with JQuery↵Ability to employ an efficient development workflow to take project from inception to launch↵Experience with Google Analytics and integration in the backend of the website↵Familiarity with SEO best practices and standards↵Experience working with and creating SVG images↵Experience managing data that requires multiple content types, categories, taxonomies, and relationships↵Comfortable working with XD and Adobe Creative Suite↵Google Adwords experience</p>↵"
+// how_to_apply: "<p>Email your resume to <a href="mailto:cbarker@brandiron.net">cbarker@brandiron.net</a></p>↵"
+// id: "26982bd3-6111-4929-9e5d-8979332722ca"
+// location: "Remote/CO"
+// title: "Front End Web Development"
+// type: "Contract"
+// url: "https://jobs.github.com/positions/26982bd3-6111-4929-9e5d-8979332722ca"
+
 
 var _default = DetailContainer;
 exports.default = _default;
@@ -41070,7 +41160,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53426" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50111" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

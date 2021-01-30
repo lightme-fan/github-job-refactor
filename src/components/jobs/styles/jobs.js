@@ -78,6 +78,7 @@ export const Pagination = styled.div`
         display: flex;
         padding: 0;
         justify-content: flex-end;
+        
         li {
             padding: 6px 17px;
             border: 1px solid;
