@@ -103,6 +103,11 @@ export const Pagination = styled.div`
 
         li:hover {
             border-color: #1E86FF;
+            background-color: #1E86FF;
+            cursor: pointer;
+            a {
+                color: #fff;
+            }
         }
 
         .active_page {
