@@ -110,15 +110,6 @@ export const Pagination = styled.div`
             }
         }
 
-        li:active {
-            border-color: #1E86FF;
-            background-color: #1E86FF;
-            cursor: pointer;
-            a {
-                color: #fff;
-            }
-        }
-
         .active_page {
             background: #1E86FF;
         }
