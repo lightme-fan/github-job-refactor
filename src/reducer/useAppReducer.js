@@ -4,7 +4,7 @@ import axios from 'axios'
 const CORS_URL = 'https://cors-anywhere.herokuapp.com/'
 
 const initialValue = {
-    loading: true,
+    loading: false,
     location: '',
     description: '',
     full_time: true,
@@ -13,25 +13,17 @@ const initialValue = {
 
 function reducer(state, action) {
     switch (action.type) {
-
-        case 'TEST': {
-            return {
-                ...state,
-                loading: false,
-                jobs: action.allJobs
-            }
-        }
         case 'FETCH_JOBS': {
             return {
                 ...state,
-                loading: false,
+                loading: true,
                 jobs: action.allJobs
             }
         }
         case 'GLOBAL_SEARCH': {
             return {
                 ...state,
-                loading: false,
+                loading: true,
                 location: action.newLocation,
                 jobs: action.newJob 
             }
@@ -48,7 +40,7 @@ function reducer(state, action) {
         case 'SEARCH_BY_LOCATION': {
             return {
                 ...state,
-                loading: false,
+                loading: true,
                 jobs: action.newJob 
             }
         }
@@ -56,7 +48,7 @@ function reducer(state, action) {
         case 'SEARCH_BY_CITIES': {
             return {
                 ...state,
-                loading: false,
+                loading: true,
                 jobs: action.newJob 
             }
         }
@@ -64,7 +56,7 @@ function reducer(state, action) {
         case 'FETCH_DATA_BACK': {
             return {
                 ...state,
-                loading: false,
+                loading: true,
                 jobs: action.allJobs
             }
         }

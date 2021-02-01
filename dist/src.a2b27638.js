@@ -74170,7 +74170,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 const CORS_URL = 'https://cors-anywhere.herokuapp.com/';
 const initialValue = {
-  loading: true,
+  loading: false,
   location: '',
   description: '',
   full_time: true,
@@ -74179,18 +74179,10 @@ const initialValue = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'TEST':
-      {
-        return { ...state,
-          loading: false,
-          jobs: action.allJobs
-        };
-      }
-
     case 'FETCH_JOBS':
       {
         return { ...state,
-          loading: false,
+          loading: true,
           jobs: action.allJobs
         };
       }
@@ -74198,7 +74190,7 @@ function reducer(state, action) {
     case 'GLOBAL_SEARCH':
       {
         return { ...state,
-          loading: false,
+          loading: true,
           location: action.newLocation,
           jobs: action.newJob
         };
@@ -74215,7 +74207,7 @@ function reducer(state, action) {
     case 'SEARCH_BY_LOCATION':
       {
         return { ...state,
-          loading: false,
+          loading: true,
           jobs: action.newJob
         };
       }
@@ -74223,7 +74215,7 @@ function reducer(state, action) {
     case 'SEARCH_BY_CITIES':
       {
         return { ...state,
-          loading: false,
+          loading: true,
           jobs: action.newJob
         };
       }
@@ -74231,7 +74223,7 @@ function reducer(state, action) {
     case 'FETCH_DATA_BACK':
       {
         return { ...state,
-          loading: false,
+          loading: true,
           jobs: action.allJobs
         };
       }
@@ -74560,15 +74552,6 @@ const Pagination = _styledComponents.default.div`
         }
 
         li:hover {
-            border-color: #1E86FF;
-            background-color: #1E86FF;
-            cursor: pointer;
-            a {
-                color: #fff;
-            }
-        }
-
-        li:active {
             border-color: #1E86FF;
             background-color: #1E86FF;
             cursor: pointer;
@@ -95016,7 +94999,9 @@ function JobContainer() {
     setActivePage(x);
   }
 
-  return /*#__PURE__*/_react.default.createElement(_components.Jobs, null, /*#__PURE__*/_react.default.createElement(_components.Jobs.List, null, currentJobs.map(job => /*#__PURE__*/_react.default.createElement(_components.Jobs.Item, {
+  return /*#__PURE__*/_react.default.createElement(_components.Jobs, null, /*#__PURE__*/_react.default.createElement(_components.Jobs.List, null, !loading ? /*#__PURE__*/_react.default.createElement("div", {
+    className: "lds-spinner"
+  }, /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement("div", null)) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, currentJobs.map(job => /*#__PURE__*/_react.default.createElement(_components.Jobs.Item, {
     key: job.id
   }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: `/${job.id}`
@@ -95047,7 +95032,7 @@ function JobContainer() {
     totalItemsCount: jobs.length,
     pageRangeDisplayed: 3,
     onChange: handlePagination
-  }))));
+  })))));
 }
 
 var _default = JobContainer;
@@ -95391,7 +95376,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49942" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59909" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
