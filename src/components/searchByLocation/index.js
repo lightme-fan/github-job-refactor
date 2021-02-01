@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react'
+import { is } from 'date-fns/locale'
+import React, { useContext, useEffect, useState } from 'react'
 
 import locations from '../../../locations'
 import { GlobalContext } from '../../context/ContextProvider'
@@ -21,14 +22,20 @@ SearchByLocation.Input = function SearchByLocationInput({children, ...restProps}
 }
 
 SearchByLocation.Location = function SearchByLocationLocation({children, ...restProps}) {
-    const { jobs, dispatch } = useContext(GlobalContext)
-    const [ searchValue, setSearchValue ] = useState('')
+    const { jobs, dispatch, fetchData } = useContext(GlobalContext)
+    const [ isInputChecked, setIsInputChecked ] = useState(false)
 
     const handleCheckboxOnChange = (e) => {
-        const filterJobs = jobs.filter(job => job.location.toLowerCase().includes(e.target.value.toLowerCase()))
-        dispatch({ type: 'SEARCH_BY_CITIES', newJob: filterJobs})
+        let inputCheckbox = e.target.type === 'checkbox'
+        if (inputCheckbox && e.target.checked) {            
+            const filterJobs = jobs.filter(job => job.location.toLowerCase().includes(e.target.value.toLowerCase()))
+            dispatch({ type: 'SEARCH_BY_CITIES', newJob: filterJobs})
+        } else {
+            fetchData()
+        }
     }
 
+    
     return (
         <Location type="text" {...restProps}>
             {locations.map(item => 

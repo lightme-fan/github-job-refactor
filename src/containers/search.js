@@ -1,17 +1,21 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 
 import { GlobalContext } from '../context/ContextProvider'
 import { SearchByLocation, SearchByType } from '../components'
 import { Search } from '../global-styles'
 
 export default function SearchContainer() {
-    const { jobs, dispatch } = useContext(GlobalContext) 
+    const { jobs, dispatch, fetchData } = useContext(GlobalContext) 
     const [ fullTime, setFullTime ] = useState('Full Time')
     const [ searchLocation, setSearchLocation ] = useState('')
 
     const handleCheckbox = (e) => {
-        const filteredJobs = jobs.filter(job => job.type === fullTime)
-        dispatch({ type: 'SEARCH_BY_TYPE', newJob: filteredJobs})
+        if (e.target.type === 'checkbox' && e.target.checked) {
+            const filteredJobs = jobs.filter(job => job.type === fullTime)
+            dispatch({ type: 'SEARCH_BY_TYPE', newJob: filteredJobs})
+        } else {
+            fetchData()
+        }
     }
 
     const handleSearchLocation = (e) => {
@@ -20,6 +24,18 @@ export default function SearchContainer() {
         const searchJobs = jobs.filter(job => job.location.toLowerCase().includes(searchLocation.toLocaleLowerCase()))
         dispatch({type: 'SEARCH_BY_LOCATION', newJob: searchJobs})
     }
+
+    function handleKeyDown(e) {
+        if (e.keyCode === 8) {
+            setSearchLocation('')
+        }    
+    }
+
+    useEffect(() => {
+        if (searchLocation === '') {
+            fetchData()
+        }
+    }, [searchLocation, fullTime])
 
     return (
         <Search>
@@ -37,6 +53,7 @@ export default function SearchContainer() {
                     placeholder="City, State, Zip code or country" 
                     value={searchLocation}
                     onChange={handleSearchLocation}
+                    onKeyDown={handleKeyDown}
                 />
                 <SearchByLocation.Location/>
             </SearchByLocation>

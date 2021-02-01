@@ -3,12 +3,12 @@ import { Header,  GlobalSearch} from '../components'
 import { GlobalContext } from '../context/ContextProvider'
 
 export default function HeaderContainer() {
+    const { jobs, dispatch, location, fetchData } = useContext(GlobalContext)
     const [ search, setSearch ] = useState('')
-    const { jobs, dispatch } = useContext(GlobalContext)
     const [ searchResult, setSearchResult ] = useState([])
     
     const handleGlobalSearch = (e) => {
-        e.preventDefault()
+        e.preventDefault() 
         const filteredJobs = jobs.filter(job => {
             const searchByTitle = job.title.toLowerCase().includes(search.toLocaleLowerCase())
             const searchByCompany = job.company.toLowerCase().includes(search.toLocaleLowerCase())
@@ -17,12 +17,19 @@ export default function HeaderContainer() {
             return searchByTitle || searchByCompany || searchByType || searchByLocation 
         })
         setSearchResult(filteredJobs)
-
-        dispatch({type: 'GLOBAL_SEARCH', newJob: filteredJobs})        
+        dispatch({type: 'GLOBAL_SEARCH', newJob: filteredJobs}) 
     }
-    
+
+    function handleKeyDown(e) {
+        if (e.keyCode === 8) {
+            setSearch('')
+        }    
+    }
+
     useEffect(() => {
-        console.log(search);
+        if (search === '') {
+            fetchData()
+        }
     }, [search])
 
     return (
@@ -46,8 +53,10 @@ export default function HeaderContainer() {
                 </svg>
                     <GlobalSearch.Input 
                         placeholder="Title, Company, Expertise"
+                        name='search'
                         value={search} 
                         onChange={({ target }) => setSearch(target.value)}
+                        onKeyDown={handleKeyDown}
                     />
                     <GlobalSearch.Button>Search</GlobalSearch.Button>
                 </GlobalSearch.Wrapper>

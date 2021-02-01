@@ -20,9 +20,8 @@ function JobContainer() {
     const currentJobs = jobs.slice( firstPage, lastPage );
 
     // Handle page number
-    function handlePagination(pageNumber) {
-        setPageClassName('active_page')
-        setActivePage(pageNumber)
+    function handlePagination(x) {
+        setActivePage(x)
     }
 
     return (

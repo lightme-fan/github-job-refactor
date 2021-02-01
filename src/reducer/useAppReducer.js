@@ -1,21 +1,26 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
 import axios from 'axios'
 
 const CORS_URL = 'https://cors-anywhere.herokuapp.com/'
-const API_URL = 'https://jobs.github.com/positions.json'
-const description = ''
-const location = ''
-const fulltime = true
-const page = 1
-const API = `https://jobs.github.com/positions.json?description=${description}&location=${location}&full_time=${fulltime}`
 
 const initialValue = {
     loading: true,
+    location: '',
+    description: '',
+    full_time: true,
     jobs: []
 }
 
 function reducer(state, action) {
     switch (action.type) {
+
+        case 'TEST': {
+            return {
+                ...state,
+                loading: false,
+                jobs: action.allJobs
+            }
+        }
         case 'FETCH_JOBS': {
             return {
                 ...state,
@@ -27,6 +32,7 @@ function reducer(state, action) {
             return {
                 ...state,
                 loading: false,
+                location: action.newLocation,
                 jobs: action.newJob 
             }
         }
@@ -54,6 +60,14 @@ function reducer(state, action) {
                 jobs: action.newJob 
             }
         }
+
+        case 'FETCH_DATA_BACK': {
+            return {
+                ...state,
+                loading: false,
+                jobs: action.allJobs
+            }
+        }
         default: {
             return state
         }
@@ -62,20 +76,20 @@ function reducer(state, action) {
 
 function useAppReducer() {
     const [ state, dispatch ] = useReducer(reducer, initialValue)
+    const { location, full_time, description } = state
 
-    // const fetchData = async () => {
-    //     const response = await axios(CORS_URL+API_URL)
-    //     const data = await response.data
-    //     dispatch({type: 'FETCH_JOBS', allJobs: data})
-    // }
-
-    useEffect(async () => {
-        const response = await axios(CORS_URL+API_URL)
+    const fetchData = async () => {
+        // const response = await axios(`${CORS_URL}https://jobs.github.com/positions.json?description=${description}&full_time=${full_time}&location=${location}`)
+        const response = await axios(`${CORS_URL}https://jobs.github.com/positions.json`)
         const data = await response.data
         dispatch({type: 'FETCH_JOBS', allJobs: data})
+    }
+
+    useEffect(async () => {
+        fetchData()
     }, [])
 
-    return [ state, dispatch ]
+    return [ state, dispatch, fetchData ]
 }
 
 export default useAppReducer
