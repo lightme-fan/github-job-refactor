@@ -8,6 +8,14 @@
     <script src="/src.dbcf305e.js"></script></head>
     <body>
         <div id="root"></div>
+        <script>const title = document.getElementsByTagName('title');
+console.log(title.outerText);
+
+function updateTitle() {
+  setTimeout(function () {
+    window.title = 'Loading...';
+  }, 2000);
+}</script>
         <script src="/src.a2b27638.js"></script>
     </body>
 </html>
