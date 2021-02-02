@@ -35963,13 +35963,16 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const Label = _styledComponents.default.label``;
+const Label = _styledComponents.default.label`
+    cursor: pointer;
+`;
 exports.Label = Label;
 const Input = _styledComponents.default.input`
     padding: 1rem;
     margin-right: 1rem;
     width: 18px;
     height: 18px;
+    cursor: pointer;
 `;
 exports.Input = Input;
 },{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/searchByType/index.js":[function(require,module,exports) {
@@ -74324,6 +74327,10 @@ const Container = _styledComponents.default.div`
         top: 20%;
         left: 3%;
     }
+
+    label {
+        cursor: pointer;
+    }
 `;
 exports.Container = Container;
 const Title = _styledComponents.default.h2`
@@ -74348,6 +74355,7 @@ const Location = _styledComponents.default.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    cursor: pointer;
 
     input {
         margin-right: 4%;
@@ -74358,7 +74366,6 @@ const Location = _styledComponents.default.div`
         width: 18px;
         height: 18px;
         box-sizing: border-box;
-        
     }
 `;
 exports.Location = Location;
@@ -95388,7 +95395,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54424" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55760" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

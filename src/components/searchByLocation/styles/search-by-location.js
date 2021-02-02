@@ -9,6 +9,10 @@ export const Container = styled.div`
         top: 20%;
         left: 3%;
     }
+
+    label {
+        cursor: pointer;
+    }
 `;
 
 export const Title = styled.h2`
@@ -33,6 +37,7 @@ export const Location = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    cursor: pointer;
 
     input {
         margin-right: 4%;
@@ -43,6 +48,5 @@ export const Location = styled.div`
         width: 18px;
         height: 18px;
         box-sizing: border-box;
-        
     }
 `;
