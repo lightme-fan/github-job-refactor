@@ -24,17 +24,17 @@ SearchByLocation.Input = function SearchByLocationInput({children, ...restProps}
 SearchByLocation.Location = function SearchByLocationLocation({children, ...restProps}) {
     const { jobs, dispatch, fetchData } = useContext(GlobalContext)
     const [ isInputChecked, setIsInputChecked ] = useState(false)
+    const [ disabled, setDisabled ] = useState(true)
 
     const handleCheckboxOnChange = (e) => {
         let inputCheckbox = e.target.type === 'checkbox'
         if (inputCheckbox && e.target.checked) {            
             const filterJobs = jobs.filter(job => job.location.toLowerCase().includes(e.target.value.toLowerCase()))
             dispatch({ type: 'SEARCH_BY_CITIES', newJob: filterJobs})
-        } else {
+        } else {            
             fetchData()
         }
     }
-
     
     return (
         <Location type="text" {...restProps}>

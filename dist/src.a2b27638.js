@@ -35967,6 +35967,9 @@ const Label = _styledComponents.default.label``;
 exports.Label = Label;
 const Input = _styledComponents.default.input`
     padding: 1rem;
+    margin-right: 1rem;
+    width: 18px;
+    height: 18px;
 `;
 exports.Input = Input;
 },{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/searchByType/index.js":[function(require,module,exports) {
@@ -74348,6 +74351,14 @@ const Location = _styledComponents.default.div`
 
     input {
         margin-right: 4%;
+        border-radius: 50%;
+    }
+
+    input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        box-sizing: border-box;
+        
     }
 `;
 exports.Location = Location;
@@ -74410,6 +74421,7 @@ SearchByLocation.Location = function SearchByLocationLocation({
     fetchData
   } = (0, _react.useContext)(_ContextProvider.GlobalContext);
   const [isInputChecked, setIsInputChecked] = (0, _react.useState)(false);
+  const [disabled, setDisabled] = (0, _react.useState)(true);
 
   const handleCheckboxOnChange = e => {
     let inputCheckbox = e.target.type === 'checkbox';
@@ -95376,7 +95388,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59909" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54424" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

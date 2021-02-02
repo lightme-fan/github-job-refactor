@@ -36,5 +36,13 @@ export const Location = styled.div`
 
     input {
         margin-right: 4%;
+        border-radius: 50%;
+    }
+
+    input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        box-sizing: border-box;
+        
     }
 `;
